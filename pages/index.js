@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 // Components
 import Header from '../components/Header'
+import CardSource from '../components/CardSource'
 
 export default function Home(props) {
   return (
@@ -14,26 +15,15 @@ export default function Home(props) {
       </Head>
 
       <Header/>
-
     
-        <h1 style={{textAlign: "center"}}>Les Journaux</h1>
-        <ContainerListSource>
-          {props.dataSource.map(source => {
-            return(
-              <CardSource key={uuidv4()}>
-                <h4>{source.name}</h4>
-                {/* <p>{source.id}</p>
-                <p>{source.url}</p> */}
-              </CardSource>
-            )
-          })}
-        </ContainerListSource>
-
-      
-
-      
-      
-      
+      <h1 style={{textAlign: "center"}}>Les Journaux</h1>
+      <ContainerListSource>
+        {props.dataSource.map(source => {
+          return(
+            <CardSource source={source} key={uuidv4()}/>
+          )
+        })}
+      </ContainerListSource>
      
     </>
   )
@@ -51,27 +41,14 @@ export async function getStaticProps(){
 }
 
 const ContainerListSource = styled.div`
-    display: grid;
-    grid-template-rows: auto;
-    row-gap: 10px;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 10px;
   margin-bottom: 2%;
   margin-top: 2%;
 `;
 
-const CardSource = styled.div`
-  width: 30%;
-  border-bottom: 2px solid black;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.5s ease, color 0.8s ease, border-bottom 0.8s ease, width 1s ease;
-  &:hover{
-    transform: scale(1.05);
-    color: #b69574;
-    border-bottom: 2px solid #b69574;
-    width: 50%;
-  }
-`;
+
 
 
 
