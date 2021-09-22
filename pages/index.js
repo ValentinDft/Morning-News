@@ -30,7 +30,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(){
-  let requete = await fetch("http://localhost:3000/api/requeteSource");
+  let requete = await fetch("http://localhost:3000/api/requeteListSource");
   let response = await requete.json();
 
   return {

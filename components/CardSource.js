@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Image from "next/image"
+import { useRouter } from 'next/router'
 
 // Images
 import logoGoogleNews from "../public/assets/Google_News_icon.png"
@@ -11,9 +12,7 @@ import logoLiberation from "../public/assets/liberation-logo.png"
 
 export default function CardSource(props) {
 
-  let clickSource = () => {
-      console.log(props);
-  }
+  const router = useRouter();
 
   let urlImg;
   if (props.source.id === "google-news-fr") {
@@ -28,11 +27,16 @@ export default function CardSource(props) {
     urlImg = logoLiberation;
   }
 
+  let clickSource = () => {
+    router.push({
+      pathname: `/${props.source.id}`,
+      query: { source: props.source.name },
+    });
+  }
+
   return (
-    <DivCardSource onClick={clickSource}>
+    <DivCardSource onClick={() => clickSource()}>
       {/* <Image src={urlImg} placeholder="blur" width="120" height="60"/> */}
-      
-      
       <h4 style={{textAlign: "center"}}>{props.source.name}</h4>
       {/* <p>{source.id}</p>
       <p>{source.url}</p> */}
