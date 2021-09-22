@@ -41,9 +41,9 @@ export async function getStaticProps(){
 }
 
 const ContainerListSource = styled.div`
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 2%;
   margin-top: 2%;
 `;
