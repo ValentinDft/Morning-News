@@ -1,31 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import Image from "next/image"
 import { useRouter } from 'next/router'
 
 // Images
-import logoGoogleNews from "../public/assets/Google_News_icon.png"
-import logoLeMonde from "../public/assets/le-monde-logo.png"
-import logoLequipe from "../public/assets/lequipe-logo.jpg"
-import logoLesEchos from "../public/assets/les-echos-logo.png"
-import logoLiberation from "../public/assets/liberation-logo.png"
+// import logoGoogleNews from "../public/assets/Google_News_icon.png"
+// import logoLeMonde from "../public/assets/le-monde-logo.png"
+// import logoLequipe from "../public/assets/lequipe-logo.jpg"
+// import logoLesEchos from "../public/assets/les-echos-logo.png"
+// import logoLiberation from "../public/assets/liberation-logo.png"
 
 export default function CardSource(props) {
 
   const router = useRouter();
 
-  let urlImg;
-  if (props.source.id === "google-news-fr") {
-    urlImg = logoGoogleNews;
-  } else if (props.source.id === "le-monde") {
-    urlImg = logoLeMonde;
-  } else if (props.source.id === "lequipe") {
-    urlImg = logoLequipe;
-  } else if (props.source.id === "les-echos") {
-    urlImg = logoLesEchos;
-  } else if (props.source.id === "liberation") {
-    urlImg = logoLiberation;
-  }
+  // let urlImg;
+  // if (props.source.id === "google-news-fr") {
+  //   urlImg = logoGoogleNews;
+  // } else if (props.source.id === "le-monde") {
+  //   urlImg = logoLeMonde;
+  // } else if (props.source.id === "lequipe") {
+  //   urlImg = logoLequipe;
+  // } else if (props.source.id === "les-echos") {
+  //   urlImg = logoLesEchos;
+  // } else if (props.source.id === "liberation") {
+  //   urlImg = logoLiberation;
+  // }
 
   let clickSource = () => {
     router.push({
@@ -38,8 +37,6 @@ export default function CardSource(props) {
     <DivCardSource onClick={() => clickSource()}>
       {/* <Image src={urlImg} placeholder="blur" width="120" height="60"/> */}
       <h4 style={{textAlign: "center"}}>{props.source.name}</h4>
-      {/* <p>{source.id}</p>
-      <p>{source.url}</p> */}
     </DivCardSource>
   )
 }

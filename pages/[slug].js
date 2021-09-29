@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Link from "next/link"
 import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid';
 
 // Icons
 import { FaRegNewspaper } from "react-icons/fa";
@@ -11,17 +11,20 @@ export default function News(props) {
     const router = useRouter();
     
     return (
-        <>
+        <ContainerPage>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Source | {router.query.source}</title>
+                <title>Morning News | {router.query.source}</title>
             </Head>
-            <h1 style={{textAlign: "center"}}>{router.query.source}</h1>
 
+            <ContainerTitle>
+                <h1>Morning News | {router.query.source}</h1>
+            </ContainerTitle>
+            
             <ContainerArticle>
                 {props.dataSource.map((article) => {
                     return(
-                        <CardArticle>
+                        <CardArticle key={uuidv4()}> 
                             <div style={{minHeight: "120px",overflow: "hidden"}}>
                                 <h4 style={{color: "#4F3E48", textAlign: "justify"}}>{article.title}</h4>
                             </div>
@@ -35,18 +38,29 @@ export default function News(props) {
                             <p style={{textAlign: "center"}}>{article.publishedAt}</p>
 
                             <LienSource>
-                                <Link href={article.url}>
+                                <a href={article.url} target="_blank" style={{color: "black"}}>
                                     <Icon/>
-                                </Link>
+                                </a>
                             </LienSource>
                             
                         </CardArticle>
                     )
                 })}
             </ContainerArticle>
-        </>
+        </ContainerPage>
     )
 }
+
+const ContainerPage = styled.div`
+    background: rgb(203,164,127);
+background: linear-gradient(0deg, rgba(203,164,127,0.8130602582830007) 0%, rgba(236,230,224,1) 69%);
+`;
+
+const ContainerTitle = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+`;
 
 const ContainerArticle = styled.div`
     display: grid;
@@ -56,6 +70,7 @@ const ContainerArticle = styled.div`
 `;
 
 const CardArticle = styled.div`
+background-color: white;
     border: 3px solid #BBA194;
     padding: 10px 20px;
     border-radius: 15px;
