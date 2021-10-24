@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Icons
 import { FaRegNewspaper } from "react-icons/fa";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 export default function News(props) {
 
@@ -16,6 +17,8 @@ export default function News(props) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>Morning News | {router.query.source}</title>
             </Head>
+
+            <IoArrowBackCircleOutline style={{color: "#ffeaa7", fontSize: 25, cursor: "pointer", padding: 10}} onClick={() => router.back()}/>
 
             <ContainerTitle>
                 <h1 style={{color: "#ffeaa7"}}>Morning News | {router.query.source}</h1>
