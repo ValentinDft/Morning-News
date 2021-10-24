@@ -36,23 +36,22 @@ export default function CardSource(props) {
   return (
     <DivCardSource onClick={() => clickSource()}>
       {/* <Image src={urlImg} placeholder="blur" width="120" height="60"/> */}
-      <h4 style={{textAlign: "center"}}>{props.source.name}</h4>
+      <h4 style={{textAlign: "center", color: "white"}}>{props.source.name}</h4>
     </DivCardSource>
   )
 }
 
 const DivCardSource = styled.div`
   width: 30%;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #636e72;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.5s ease, color 0.8s ease, border-bottom 0.8s ease, width 1s ease;
+  transition: transform 1s ease, border-bottom 1s ease, width 1.5s ease;
   &:hover{
     transform: scale(1.05);
-    color: #b69574;
-    border-bottom: 3px solid #b69574;
-    width: 50%;
+    border-bottom: 3px solid #ffeaa7;
+    width: 40%;
   }
 `;

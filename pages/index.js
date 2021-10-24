@@ -16,8 +16,9 @@ export default function Home(props) {
 
       <Header/>
     
-      <h1 style={{textAlign: "center"}}>Les Journaux</h1>
+      
       <ContainerListSource>
+      <h1 style={{textAlign: "center", color: "#ffeaa7"}}>Les Journaux</h1>
         {props.dataSource.map(source => {
           return(
             <CardSource source={source} key={uuidv4()}/>
@@ -41,11 +42,12 @@ export async function getStaticProps(){
 }
 
 const ContainerListSource = styled.div`
+  background: #2d3436;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2%;
-  margin-top: 2%;
+  padding-bottom: 2%;
+  padding-top: 2%;
 `;
 
 

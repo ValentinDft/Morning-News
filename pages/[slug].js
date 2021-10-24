@@ -18,7 +18,7 @@ export default function News(props) {
             </Head>
 
             <ContainerTitle>
-                <h1>Morning News | {router.query.source}</h1>
+                <h1 style={{color: "#ffeaa7"}}>Morning News | {router.query.source}</h1>
             </ContainerTitle>
             
             <ContainerArticle>
@@ -29,7 +29,7 @@ export default function News(props) {
                                 <h4 style={{color: "#4F3E48", textAlign: "justify"}}>{article.title}</h4>
                             </div>
 
-                            <img src={article.urlToImage} style={{width: 250, height: 150, objectFit: "cover", borderRadius: "10px"}}/>
+                            <img src={article.urlToImage} style={{width: 250, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
                             
                             <div style={{minHeight: "200px",overflow: "hidden", display: "flex", alignItems: "center"}}>
                                 <p style={{textAlign: "justify"}}>{article.description}</p>
@@ -47,13 +47,13 @@ export default function News(props) {
                     )
                 })}
             </ContainerArticle>
+            
         </ContainerPage>
     )
 }
 
 const ContainerPage = styled.div`
-    background: rgb(203,164,127);
-background: linear-gradient(0deg, rgba(203,164,127,0.8130602582830007) 0%, rgba(236,230,224,1) 69%);
+    background: #2d3436;
 `;
 
 const ContainerTitle = styled.div`
@@ -70,15 +70,14 @@ const ContainerArticle = styled.div`
 `;
 
 const CardArticle = styled.div`
-background-color: white;
-    border: 3px solid #BBA194;
+    background-color: #ffeaa7;
     padding: 10px 20px;
     border-radius: 15px;
     margin-bottom: 15%;
-    box-shadow: 15px 15px 15px rgb(0 0 0 / 30%), 0 0 25px rgb(0 0 0 / 50%);
+    box-shadow: 15px 15px 15px rgb(99, 110, 114), 0 0 25px rgb(99, 110, 114);
     transition: box-shadow 0.5s ease, transform 0.8s ease;
     &:hover {
-        box-shadow: 8px 8px 8px rgb(0 0 0 / 20%), 0 0 15px rgb(0 0 0 / 30%);
+        box-shadow: 8px 8px 8px rgb(99, 110, 114), 0 0 15px rgb(99, 110, 114);
         transform: scale(0.98);
     }
 `;
