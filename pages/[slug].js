@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styled from 'styled-components'
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from 'framer-motion';
 
 // Icons
 import { FaRegNewspaper } from "react-icons/fa";
@@ -20,14 +21,29 @@ export default function News(props) {
 
             <IoArrowBackCircleOutline style={{color: "#ffeaa7", fontSize: 25, cursor: "pointer", padding: 10}} onClick={() => router.back()}/>
 
-            <ContainerTitle>
+            <ContainerTitle 
+                initial={{ opacity: 0, x: 0, y: -100 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{
+                    delay: 0.2,
+                    type: 'linear'
+                }}
+            >
                 <h1 style={{color: "#ffeaa7"}}>Morning News | {router.query.source}</h1>
             </ContainerTitle>
             
             <ContainerArticle>
                 {props.dataSource.map((article) => {
                     return(
-                        <CardArticle key={uuidv4()}> 
+                        <CardArticle 
+                            key={uuidv4()} 
+                            initial={{ scale: 0.9, opacity: 0}}
+                            animate={{ scale: 1, opacity: 1}}
+                            transition={{
+                                delay: 0.2,
+                                type: 'linear'
+                            }}
+                        > 
                             <div style={{minHeight: "120px",overflow: "hidden"}}>
                                 <h4 style={{color: "#4F3E48", textAlign: "justify"}}>{article.title}</h4>
                             </div>
@@ -59,7 +75,7 @@ const ContainerPage = styled.div`
     background: #2d3436;
 `;
 
-const ContainerTitle = styled.div`
+const ContainerTitle = styled(motion.div)`
     display: flex;
     justify-content: center;
     padding: 20px 0px;
@@ -72,7 +88,7 @@ const ContainerArticle = styled.div`
     justify-content: space-around;
 `;
 
-const CardArticle = styled.div`
+const CardArticle = styled(motion.div)`
     background-color: #ffeaa7;
     padding: 10px 20px;
     border-radius: 15px;

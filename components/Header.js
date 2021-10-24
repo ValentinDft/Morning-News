@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion';
 
 export default function Header() {
 
@@ -14,7 +15,15 @@ export default function Header() {
     return (
         <DivHeader state={offset}>
             <DivTitle>
-                <Title>MORNING NEWS</Title>
+                <Title 
+                    initial={{ opacity: 0, x: 0, y: -100 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    transition={{
+                        delay: 1,
+                    }}
+                >
+                    MORNING NEWS
+                </Title>
             </DivTitle>
         </DivHeader>
     )
@@ -43,7 +52,7 @@ const DivTitle = styled.div`
     align-items: center;
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
     @import url('https://fonts.googleapis.com/css2?family=Besley&display=swap');
     margin: 0; 
     font-family: 'Besley', serif;

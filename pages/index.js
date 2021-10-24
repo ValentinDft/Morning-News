@@ -18,7 +18,7 @@ export default function Home(props) {
     
       
       <ContainerListSource>
-      <h1 style={{textAlign: "center", color: "#ffeaa7"}}>Les Journaux</h1>
+        <h1 style={{textAlign: "center", color: "#ffeaa7"}}>Les Journaux</h1>
         {props.dataSource.map(source => {
           return(
             <CardSource source={source} key={uuidv4()}/>
