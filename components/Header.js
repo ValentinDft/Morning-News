@@ -19,7 +19,7 @@ export default function Header() {
                     initial={{ opacity: 0, x: 0, y: -100 }}
                     animate={{ opacity: 1, x: 0, y: 0 }}
                     transition={{
-                        delay: 1,
+                        delay: .5,
                     }}
                 >
                     MORNING NEWS

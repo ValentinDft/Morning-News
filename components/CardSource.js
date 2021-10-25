@@ -1,6 +1,7 @@
-import React from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 // Images
 // import logoGoogleNews from "../public/assets/Google_News_icon.png"
@@ -12,6 +13,7 @@ import { useRouter } from 'next/router'
 export default function CardSource(props) {
 
   const router = useRouter();
+  const [loader, setLoader] = useState(false);
 
   // let urlImg;
   // if (props.source.id === "google-news-fr") {
@@ -27,16 +29,17 @@ export default function CardSource(props) {
   // }
 
   let clickSource = () => {
+    setLoader(true);
     router.push({
       pathname: `/${props.source.id}`,
       query: { source: props.source.name },
     });
+    setTimeout(function(){ setLoader(false); }, 2000);
   }
 
   return (
     <DivCardSource onClick={() => clickSource()}>
-      {/* <Image src={urlImg} placeholder="blur" width="120" height="60"/> */}
-      <h4 style={{textAlign: "center", color: "white"}}>{props.source.name}</h4>
+      {loader ? <h4 style={{textAlign: "center", color: "white"}}>{props.source.name} <LoadIcon/></h4> : <h4 style={{textAlign: "center", color: "white"}}>{props.source.name}</h4>}
     </DivCardSource>
   )
 }
@@ -48,10 +51,23 @@ const DivCardSource = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 1s ease, border-bottom 1s ease, width 1.5s ease;
+  transition: transform 1s ease, border-bottom .5s ease, width .5s ease;
   &:hover{
     transform: scale(1.05);
     border-bottom: 3px solid #ffeaa7;
     width: 40%;
   }
+`;
+
+const LoadIcon = styled(AiOutlineLoading3Quarters)`
+  color: white;
+  animation: spinner 1s linear infinite;
+  @keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 `;

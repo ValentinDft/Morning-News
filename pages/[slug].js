@@ -45,7 +45,7 @@ export default function News(props) {
                             }}
                         > 
                             <div style={{minHeight: "120px",overflow: "hidden"}}>
-                                <h4 style={{color: "#4F3E48", textAlign: "justify"}}>{article.title}</h4>
+                                <h4 style={{color: "#2d3436", textAlign: "justify"}}>{article.title}</h4>
                             </div>
 
                             <img src={article.urlToImage} style={{width: 250, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
@@ -57,7 +57,7 @@ export default function News(props) {
                             <p style={{textAlign: "center"}}>{article.publishedAt}</p>
 
                             <LienSource>
-                                <a href={article.url} target="_blank" style={{color: "black"}}>
+                                <a href={article.url} target="_blank" style={{color: "#2d3436"}}>
                                     <Icon/>
                                 </a>
                             </LienSource>
@@ -89,7 +89,7 @@ const ContainerArticle = styled.div`
 `;
 
 const CardArticle = styled(motion.div)`
-    background-color: #ffeaa7;
+    background-color: #dfe6e9;
     padding: 10px 20px;
     border-radius: 15px;
     margin-bottom: 15%;
@@ -112,7 +112,7 @@ const Icon = styled(FaRegNewspaper)`
     transition: all 0.8s ease;
     &:hover {
         transform: scale(1.8);
-        color: #BBA194;
+        color: #fdcb6e;
     }
 `;
 
