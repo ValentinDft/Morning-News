@@ -11,6 +11,18 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 export default function News(props) {
 
     const router = useRouter();
+
+    // Fonction de formatage de la date
+	let dateFormat = function (date) {
+		var newDate = new Date(date);
+		var format =
+			newDate.getDate() +
+			'/' +
+			(newDate.getMonth() + 1) +
+			'/' +
+			newDate.getFullYear();
+		return format;
+	};
     
     return (
         <ContainerPage>
@@ -45,16 +57,16 @@ export default function News(props) {
                             }}
                         > 
                             <div style={{minHeight: "120px",overflow: "hidden"}}>
-                                <h4 style={{color: "#2d3436", textAlign: "justify"}}>{article.title}</h4>
+                                <h4 style={{color: "#2d3436", textAlign: "center"}}>{article.title}</h4>
                             </div>
 
-                            <img src={article.urlToImage} style={{width: 250, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
+                            <img src={article.urlToImage} style={{width: 280, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
                             
                             <div style={{minHeight: "200px",overflow: "hidden", display: "flex", alignItems: "center"}}>
                                 <p style={{textAlign: "justify"}}>{article.description}</p>
                             </div>
 
-                            <p style={{textAlign: "center"}}>{article.publishedAt}</p>
+                            <p style={{textAlign: "center"}}>{dateFormat(article.publishedAt)}</p>
 
                             <LienSource>
                                 <a href={article.url} target="_blank" style={{color: "#2d3436"}}>
@@ -78,7 +90,7 @@ const ContainerPage = styled.div`
 const ContainerTitle = styled(motion.div)`
     display: flex;
     justify-content: center;
-    padding: 20px 0px;
+    padding: 10px;
 `;
 
 const ContainerArticle = styled.div`
@@ -89,15 +101,15 @@ const ContainerArticle = styled.div`
 `;
 
 const CardArticle = styled(motion.div)`
+    /* border: 2px solid #ffeaa7; */
     background-color: #dfe6e9;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 15px;
     margin-bottom: 15%;
-    box-shadow: 15px 15px 15px rgb(99, 110, 114), 0 0 25px rgb(99, 110, 114);
-    transition: box-shadow 0.5s ease, transform 0.8s ease;
+    box-shadow: 10px 10px 15px rgb(99, 110, 114), 0 0 20px rgb(99, 110, 114);
+    transition: box-shadow 0.5s ease;
     &:hover {
         box-shadow: 8px 8px 8px rgb(99, 110, 114), 0 0 15px rgb(99, 110, 114);
-        transform: scale(0.98);
     }
 `;
 
