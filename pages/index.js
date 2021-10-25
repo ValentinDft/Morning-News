@@ -31,7 +31,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(){
-  let requete = await fetch("https://morning-news.valentinduffet.fr/api/requeteListSource");
+  let requete = await fetch("morning-news-6lkl8jio5-vavadu07-gmailcom.vercel.app/api/requeteListSource");
   let response = await requete.json();
 
   return {
