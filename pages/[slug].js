@@ -132,7 +132,7 @@ export async function getStaticProps(context){
     
     const contextSlug = context.params.slug;
     let dataSource = [];
-    const requete = await fetch("http://localhost:3000/api/requeteSource", {
+    const requete = await fetch("https://morning-news.valentinduffet.fr/api/requeteSource", {
         method: "POST",
         body: JSON.stringify(contextSlug),
         headers: {
@@ -149,7 +149,7 @@ export async function getStaticProps(context){
 }
 
 export async function getStaticPaths(){
-    const requete = await fetch("http://localhost:3000/api/requeteListSource");
+    const requete = await fetch("https://morning-news.valentinduffet.fr/api/requeteListSource");
     const response = await requete.json();
 
     // Récupération du name pour en faire des pages
