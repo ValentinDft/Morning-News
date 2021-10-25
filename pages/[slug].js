@@ -60,7 +60,7 @@ export default function News(props) {
                                 <h4 style={{color: "#2d3436", textAlign: "center"}}>{article.title}</h4>
                             </div>
 
-                            <img src={article.urlToImage} style={{width: 280, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
+                            <img src={article.urlToImage} alt="Image article" style={{width: 280, height: 150, objectFit: "cover", borderRadius: "5px"}}/>
                             
                             <div style={{minHeight: "200px",overflow: "hidden", display: "flex", alignItems: "center"}}>
                                 <p style={{textAlign: "justify"}}>{article.description}</p>
@@ -69,7 +69,7 @@ export default function News(props) {
                             <p style={{textAlign: "center"}}>{dateFormat(article.publishedAt)}</p>
 
                             <LienSource>
-                                <a href={article.url} target="_blank" style={{color: "#2d3436"}}>
+                                <a href={article.url} target="_blank" rel="noreferrer" style={{color: "#2d3436"}}>
                                     <Icon/>
                                 </a>
                             </LienSource>
