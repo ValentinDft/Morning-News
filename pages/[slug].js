@@ -132,7 +132,7 @@ export async function getStaticProps(context){
     
     const contextSlug = context.params.slug;
     let dataSource = [];
-    const requete = await fetch("morning-news-6lkl8jio5-vavadu07-gmailcom.vercel.app/api/requeteSource", {
+    const requete = await fetch("https://morning-news.vercel.app/api/requeteSource", {
         method: "POST",
         body: JSON.stringify(contextSlug),
         headers: {
@@ -149,7 +149,7 @@ export async function getStaticProps(context){
 }
 
 export async function getStaticPaths(){
-    const requete = await fetch("morning-news-6lkl8jio5-vavadu07-gmailcom.vercel.app/api/requeteListSource");
+    const requete = await fetch("https://morning-news.vercel.app/api/requeteListSource");
     const response = await requete.json();
 
     // Récupération du name pour en faire des pages
